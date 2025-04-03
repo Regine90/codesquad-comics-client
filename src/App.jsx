@@ -2,6 +2,16 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Header from './shared/Header'
+import About from './components/About'
+import Admin from './components/Admin'
+import Create from './components/Create'
+import Home from './components/Home'
+import Login from './components/Login'
+import Signup from './components/Signup'
+import Update from './components/Update'
+import Footer from './shared/Footer'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +34,15 @@ function App() {
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
+        <Header />
+        <About />
+        <Admin />
+        <Create />
+        <Home />
+        <Login />
+        <Signup />
+        <Update />
+        <Footer />
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
@@ -32,4 +51,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
