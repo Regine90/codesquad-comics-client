@@ -4,7 +4,7 @@ function Signup() {
     return(
         <main>
             <div className="login">
-    <h1>LOGIN</h1>
+    <h1>Sign Up</h1>
     <form action="/login" method="POST">
         <div>
             <label htmlFor="firstName">First Name:</label>

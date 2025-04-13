@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -13,8 +13,13 @@ import Update from './components/Update'
 import Footer from './shared/Footer'
 
 
+
 function App() {
-  const [count, setCount] = useState(0)
+  // const [state_name, setter_function] = useState(initial_value);
+  const [count, setCount] = useState(0);
+  const [user, setUser] = useState({});
+
+  // function MyComponent({person, size, etc}){code in here!}
 
   return (
     <>
