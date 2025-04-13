@@ -5,9 +5,22 @@ function Home() {
         <main>
             <div className="index">
     <h1>CODESQUAD COMICS</h1>
-    <p>CodeSquad Comics is a collection of graphic novels read by Regine Valmont. The site is intended to display comic book covers along with information about each book, including the author, a rating, and other details about the graphic novel. Browse through the complete collection below. Click on the cover image or the Details link to see even more information for each graphic novel including the publisher, genre, number of pages, and a brief synopsis. The About page includes meta information about this collection. Login is only available to the site administrator at this time.</p>
+    {booksData.map((book) => (
+            <ul key={book.id}>
+                <img src={`./images/${book.imageUrl}`} width="300px"/>
+                <br />
+                <em>{book.title}</em>
+                <br />
+                by {book.author}
+                <br />
+                {book.rating} star
+                <br />
+                <a href="#">Details</a>
+            </ul>
+        ))}
+    {/* <p>CodeSquad Comics is a collection of graphic novels read by Regine Valmont. The site is intended to display comic book covers along with information about each book, including the author, a rating, and other details about the graphic novel. Browse through the complete collection below. Click on the cover image or the Details link to see even more information for each graphic novel including the publisher, genre, number of pages, and a brief synopsis. The About page includes meta information about this collection. Login is only available to the site administrator at this time.</p> */}
     </div>
-    <div className="index-border">
+    {/* <div className="index-border">
     <h2>COMPLETE COMIC COLLECTION</h2>    
     <div className="comic">
         <img src="/images/fun-home.jpg" style={{ width: '200px' }} />
@@ -126,8 +139,8 @@ function Home() {
         <a href="#">Details</a>
     </div>
     <br/>
-    <button className="button">Display More</button>
-    </div>
+    <button className="button">Display More</button> */}
+    {/* </div> */}
         </main>
     );
 };
