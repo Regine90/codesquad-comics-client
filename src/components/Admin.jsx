@@ -1,15 +1,39 @@
-import booksData from '../data/books';
+import { useEffect, useState } from "react";
+import books from "../data/books";
 
 function Admin() {
-    return(
-        <main>
-            <div className="admin">
-            <div className="center-h1-button">
-                <h1>ADMIN PAGE</h1>
-                <input type="submit" value="ADD NEW COMIC" className="button"/><br/><br/>
-            </div>
-            
-    <table>
+  const [collection, setCollection] = useState([]);
+
+  useEffect(() => {
+    const bookHere = books;
+    // localStorage.setItem("bookHere", JSON.stringify(bookHere));
+    setCollection(bookHere);
+  }, []);
+
+  console.log(collection);
+
+  return (
+    <main>
+      <div className="admin">
+        <div className="center-h1-button">
+          <h1>ADMIN PAGE</h1>
+          {books.map((book) => (
+            <tr key={book.id}>
+              <td>{book.title}</td>
+              <td>
+                <button>EDIT</button>
+              </td>
+              <td>
+                <button>DELETE</button>
+              </td>
+            </tr>
+          ))}
+          <input type="submit" value="ADD NEW COMIC" className="button" />
+          <br />
+          <br />
+        </div>
+
+        {/* <table>
   <thead>
     <tr>
       <th>COMIC TITLE</th>
@@ -79,10 +103,10 @@ function Admin() {
       <td><button>DELETE</button></td>
     </tr>
   </tbody>
-</table>
-</div>
-        </main>
-    );
-};
+</table> */}
+      </div>
+    </main>
+  );
+}
 
 export default Admin;

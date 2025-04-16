@@ -25,11 +25,11 @@ function Footer() {
                 </div>
                 <div className="footer-color-shift">
                     <h4>FOLLOW US</h4>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i className="fa-brands fa-facebook"></i></a>
                     <br/>
-                    <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href="#"><i className="fa-brands fa-square-instagram"></i></a>
                     <br/>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i className="fa-brands fa-twitter"></i></a>
                     <br/>
                 </div>
                 <div className="footer-color-shift">

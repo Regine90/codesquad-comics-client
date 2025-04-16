@@ -14,12 +14,12 @@ import Footer from './shared/Footer'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [user, setUser] = useState("")
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
+        {/* <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
@@ -30,17 +30,17 @@ function App() {
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
+        </button> */}
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
-        <Header />
+        <Header user={user} setUser={setUser}/>
         <About />
         <Admin />
         <Create />
         <Home />
-        <Login />
-        <Signup />
+        <Login user={user} setUser={setUser}/>
+        <Signup user={user} setUser={setUser}/>
         <Update />
         <Footer />
       </div>

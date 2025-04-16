@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header() {
+function Header({user, setUser}) {
   return (
     <header>
         <div className="header-color">
