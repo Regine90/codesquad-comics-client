@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -13,18 +13,13 @@ import Update from './components/Update'
 import Footer from './shared/Footer'
 
 
-
 function App() {
-  // const [state_name, setter_function] = useState(initial_value);
-  const [count, setCount] = useState(0);
-  const [user, setUser] = useState({});
-
-  // function MyComponent({person, size, etc}){code in here!}
+  const [user, setUser] = useState("")
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
+        {/* <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
@@ -35,17 +30,17 @@ function App() {
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
+        </button> */}
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
-        <Header />
+        <Header user={user} setUser={setUser}/>
         <About />
         <Admin />
         <Create />
         <Home />
-        <Login />
-        <Signup />
+        <Login user={user} setUser={setUser}/>
+        <Signup user={user} setUser={setUser}/>
         <Update />
         <Footer />
       </div>
