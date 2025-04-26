@@ -5,9 +5,18 @@ function Home() {
   const [collection, setCollection] = useState([]);
 
   useEffect(() => {
-    const bookHere = books;
-    // localStorage.setItem("bookHere", JSON.stringify(bookHere));
-    setCollection(bookHere);
+    // const bookHere = books;
+    // // localStorage.setItem("bookHere", JSON.stringify(bookHere));
+    // setCollection(bookHere);
+
+    fetch("https://course-project-codesquad-comics-server.onrender.com/api/books")
+      .then((response) => response.json())
+      .then((result) => {
+        setCollection(result.data.books);
+      })
+      .catch(error => {
+        console.log(error, "Fetch Error!");
+      })
   }, []);
 
   console.log(collection);
@@ -17,7 +26,7 @@ function Home() {
       <div className="index">
         <h1>CODESQUAD COMICS</h1>
         {books.map((book) => (
-          <ul key={book.id}>
+          <ul key={book._id}>
             <img
               src={`./images/${book.imageUrl}`}
               width="300px"

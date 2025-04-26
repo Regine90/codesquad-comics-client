@@ -1,12 +1,24 @@
 import { useEffect, useState } from "react";
 import books from "../data/books";
+import { useParams, useNavigate } from "react-router-dom";
+
 
 function Update() {
+  const { bookId } = useParams();
   const [form, setForm] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const findBook = books.find((book) => book.id === id);
+    const findBook = books.find((book) => book._id === id);
     setForm(findBook);
+    const url = "https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}";
+
+    fetch(url, {
+      method: "GET",
+    })
+    .then((response) => response.json())
+    .then((result) => console.log(result.data.books))
+    .catch((error) => console.log(error));
   }, []);
 
   const handleForm = (e) => {
@@ -19,8 +31,31 @@ function Update() {
     console.log(e.target.pages.value);
     console.log(e.target.rating.value);
     console.log(e.target.synopsis.value);
+
+     const body = {
+       title: e.target.title.value,
+       author: e.target.author.value,
+       publisher: e.target.publisher.value,
+       genre: e.target.genre.value,
+       pages: e.target.pages.value,
+       rating: e.target.rating.value,
+       synopsis: e.target.synopsis.value,
+     };
+
+     const url = "https://course-project-codesquad-comics-server.onrender.com/api/books/edit/${bookId}";
+
+     fetch(url, {
+       method: "PUT",
+       body: JSON.stringify(body),
+     })
+       .then((response) => response.json())
+       .then((result) => console.log(result.data.books))
+       .catch((error) => {
+         console.log(error);
+         navigate("/admin");
+       });
   };
-  
+
   return (
     <main>
       <form onSubmit={handleForm}>
@@ -33,8 +68,8 @@ function Update() {
               type="text"
               id="Title"
               name="Title"
-              value="title value stored in the database"
-              onChange=""
+              // value="title value stored in the database"
+              // onChange=""
             />
           </div>
 
@@ -44,7 +79,7 @@ function Update() {
               type="text"
               id="author"
               name="author"
-              value="author value stored in the database"
+              // value="author value stored in the database"
             />
           </div>
 
@@ -73,7 +108,7 @@ function Update() {
               type="text"
               id="genre"
               name="genre"
-              value="genre data stored in the database"
+              // value="genre data stored in the database"
             />
           </div>
           <div className="form-group">
@@ -82,7 +117,7 @@ function Update() {
               type="text"
               id="number of pages"
               name="Number of pages"
-              value="pages stored in database"
+              // value="pages stored in database"
             />
           </div>
           <div className="form-group">
@@ -99,12 +134,11 @@ function Update() {
             <textarea
               id="synopsis"
               name="synopsis"
-              onChange=""
+              // onChange=""
               rows="2"
               cols="20"
-            >
-              synopsis value stored in the database
-            </textarea>
+              defaultValue={"synopsis value stored in the database"}
+            />
           </div>
           <button>Submit</button>
         </div>
