@@ -1,20 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Header from './shared/Header'
-import About from './components/About'
-import Admin from './components/Admin'
-import Create from './components/Create'
-import Home from './components/Home'
-import Login from './components/Login'
-import Signup from './components/Signup'
-import Update from './components/Update'
-import Footer from './shared/Footer'
-
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Header from "./shared/Header";
+import About from "./components/About";
+import Admin from "./components/Admin";
+import Create from "./components/Create";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Update from "./components/Update";
+import Footer from "./shared/Footer";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const [user, setUser] = useState("")
+  const [user, setUser] = useState("");
 
   return (
     <>
@@ -34,13 +34,23 @@ function App() {
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
-        <Header user={user} setUser={setUser}/>
+        <Header user={user} setUser={setUser} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="./components/About.jsx" element={<About />} />
+          <Route path="/admin" element={<Admin />}/>
+          <Route path="/create" element={<Create />}/>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/signup" element={<Signup />}/>
+          <Route path="/update" element={<Update />}/>
+          <Route path="/footer" element={<Footer />}/>
+        </Routes>
         <About />
         <Admin />
         <Create />
         <Home />
-        <Login user={user} setUser={setUser}/>
-        <Signup user={user} setUser={setUser}/>
+        <Login user={user} setUser={setUser} />
+        <Signup user={user} setUser={setUser} />
         <Update />
         <Footer />
       </div>
@@ -48,7 +58,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
 export default App;

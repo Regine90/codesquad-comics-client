@@ -6,9 +6,33 @@ function Admin() {
 
   useEffect(() => {
     const bookHere = books;
-    // localStorage.setItem("bookHere", JSON.stringify(bookHere));
     setCollection(bookHere);
+
+    const FetchCreate = () => {
+      fetch("https://course-project-codesquad-comics-server.onrender.com/api/books", {
+        method: "GET",
+      })
+      .then((response) => response.json())
+      .then((result) => {
+        setCollection(result)
+      })
+      .catch((error) => console.log(error));
+    }
+    FetchCreate()
+
+    const url =
+      "https://course-project-codesquad-comics-server.onrender.com/api/books/delete/";
+
+    const handleDelete = () => {
+      fetch(`${url}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log(error));
   }, []);
+  
+  handleDelete();
 
   console.log(collection);
 
@@ -17,17 +41,26 @@ function Admin() {
       <div className="admin">
         <div className="center-h1-button">
           <h1>ADMIN PAGE</h1>
-          {books.map((book) => (
-            <tr key={book.id}>
-              <td>{book.title}</td>
-              <td>
-                <button>EDIT</button>
-              </td>
-              <td>
-                <button>DELETE</button>
-              </td>
-            </tr>
-          ))}
+          <table>
+            <tbody>
+              {books.map((book) => (
+                <tr key={book._id}>
+                  <td>{book.title}</td>
+                  <td>
+                    <button>EDIT</button>
+                  </td>
+                  <td>
+                    <button onClick={() => handleDelete(book._id)}>
+                      DELETE
+                    </button>
+                  </td>
+                  <td>
+                    <Link to="/update">Update</Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
           <input type="submit" value="ADD NEW COMIC" className="button" />
           <br />
           <br />

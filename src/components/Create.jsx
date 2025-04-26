@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
 
 function Create() {
+  const navigate = useNavigate();
   // const [formData, setFormData] = useState({
   //     title: "",
   //     author: "",
@@ -22,6 +24,29 @@ function Create() {
     console.log(e.target.pages.value);
     console.log(e.target.rating.value);
     console.log(e.target.synopsis.value);
+
+    const body = {
+      title: e.target.title.value,
+      author: e.target.author.value,
+      publisher: e.target.publisher.value,
+      genre: e.target.genre.value,
+      pages: e.target.pages.value,
+      rating: e.target.rating.value,
+      synopsis: e.target.synopsis.value,
+    };
+    const url =
+      "https://course-project-codesquad-comics-server.onrender.com/api/books/create";
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result)
+        navigate("/admin")
+      })
+      .catch((error) => console.log(error));
   };
 
   return (

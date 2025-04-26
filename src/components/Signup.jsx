@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Signup({ user, setUser }) {
+  const navigate = useNavigate();
   const handleForm = (e) => {
     e.preventDefault();
     console.log(handleForm, "Submission is on!");
@@ -11,6 +13,28 @@ function Signup({ user, setUser }) {
     console.log(e.target.pages.value);
     console.log(e.target.rating.value);
     console.log(e.target.synopsis.value);
+
+    localStorage.setItem("user", JSON.stringify());
+
+    const body = {
+      username: e.target.username.value,
+      password: e.target.password.value,
+    };
+
+    const url =
+      "https://course-project-codesquad-comics-server.onrender.com/signup";
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        localStorage.setItem("user", JSON.stringify());
+        navigate("/admin");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
