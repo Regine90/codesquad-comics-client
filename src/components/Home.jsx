@@ -9,17 +9,17 @@ function Home() {
     // // localStorage.setItem("bookHere", JSON.stringify(bookHere));
     // setCollection(bookHere);
 
-    fetch("https://course-project-codesquad-comics-server.onrender.com/api/books")
+    fetch(
+      "https://course-project-codesquad-comics-server.onrender.com/api/books"
+    )
       .then((response) => response.json())
       .then((result) => {
         setCollection(result.data.books);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error, "Fetch Error!");
-      })
+      });
   }, []);
-
-  console.log(collection);
 
   return (
     <main>

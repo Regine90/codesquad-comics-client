@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import books from "../data/books";
+import { Link } from "react-router-dom";
 
 function Admin() {
   const [collection, setCollection] = useState([]);
@@ -9,32 +10,37 @@ function Admin() {
     setCollection(bookHere);
 
     const FetchCreate = () => {
-      fetch("https://course-project-codesquad-comics-server.onrender.com/api/books", {
-        method: "GET",
-      })
-      .then((response) => response.json())
-      .then((result) => {
-        setCollection(result)
-      })
-      .catch((error) => console.log(error));
-    }
-    FetchCreate()
+      fetch(
+        "https://course-project-codesquad-comics-server.onrender.com/api/books",
+        {
+          method: "GET",
+        }
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          setCollection(result);
+        })
+        .catch((error) => console.log(error));
+    };
+    FetchCreate();
+  });
 
-    const url =
-      "https://course-project-codesquad-comics-server.onrender.com/api/books/delete/";
+  const url =
+    "https://course-project-codesquad-comics-server.onrender.com/api/books/delete/";
 
-    const handleDelete = () => {
-      fetch(`${url}`, {
+  const handleDelete = (bookId) => {
+    fetch(`${url}${bookId}`, {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        setCollection((prevCollection) =>
+          prevCollection.filter((book) => book._id !== bookId)
+        );
+      })
       .catch((error) => console.log(error));
-  }, []);
-  
-  handleDelete();
-
-  console.log(collection);
+  };
 
   return (
     <main>
@@ -62,7 +68,6 @@ function Admin() {
             </tbody>
           </table>
           <input type="submit" value="ADD NEW COMIC" className="button" />
-          <br />
           <br />
         </div>
 
