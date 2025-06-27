@@ -85,7 +85,9 @@ function Signup({ user, setUser }) {
           <br />
           <br />
         </form>
-        <button>Submit</button>
+        <div className="form-button">
+          <button>Submit</button>
+        </div>
       </div>
     </main>
   );

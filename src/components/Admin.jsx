@@ -49,7 +49,7 @@ function Admin() {
           <h1>ADMIN PAGE</h1>
           <table>
             <tbody>
-              {collection.map((book) => (
+              {books.map((book) => (
                 <tr key={book._id}>
                   <td>{book.title}</td>
                   <td>
@@ -60,14 +60,16 @@ function Admin() {
                       DELETE
                     </button>
                   </td>
-                  <td>
-                    <Link to="/update">Update</Link>
+                  <td className="update-link">
+                    <Link to="/update">UPDATE</Link>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <input type="submit" value="ADD NEW COMIC" className="button" />
+          <div className="form-button">
+            <input type="submit" value="ADD NEW COMIC" className="button" />
+          </div>
           <br />
         </div>
 

@@ -115,7 +115,9 @@ function Create() {
               placeholder="Synopsis"
             ></textarea>
           </div>
-          <button>Submit</button>
+          <div className="form-button">
+            <button>Submit</button>
+          </div>
         </div>
       </form>
     </main>

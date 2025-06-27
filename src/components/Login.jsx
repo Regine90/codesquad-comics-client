@@ -63,7 +63,9 @@ function Login({ user, setUser }) {
           <br />
           <br />
         </form>
+        <div className="form-button">
         <button>Submit</button>
+        </div>
       </div>
     </main>
   );
