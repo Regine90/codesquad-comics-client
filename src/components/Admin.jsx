@@ -23,7 +23,7 @@ function Admin() {
         .catch((error) => console.log(error));
     };
     FetchCreate();
-  });
+  }, []);
 
   const url =
     "https://course-project-codesquad-comics-server.onrender.com/api/books/delete/";
@@ -49,7 +49,7 @@ function Admin() {
           <h1>ADMIN PAGE</h1>
           <table>
             <tbody>
-              {books.map((book) => (
+              {collection.map((book) => (
                 <tr key={book._id}>
                   <td>{book.title}</td>
                   <td>
