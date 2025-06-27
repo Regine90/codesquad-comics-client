@@ -12,14 +12,42 @@ body {
   max-width: 100vw;
   margin: 0;
   overflow-x: hidden;
-  /* background-color: #009E9E;  */
-  background-image: linear-gradient(#fff, var(--LightTeal), var(--Teal));
+  padding: 0;
+  background-image: linear-gradient(
+    var(--White),
+    var(--LightTeal),
+    var(--Teal)
+  );
   font-family: "Open Sans", serif;
+  display: block;
+}
+
+html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 footer h4 {
-  /* padding-left: 200px; */
   margin-top: 0;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+  background-color: var(--Blue);
+  color: var(--White);
+  padding: 15px;
+  text-align: center;
 }
 
 .update-comic h1 {
@@ -28,9 +56,7 @@ footer h4 {
 }
 
 .footer-color {
-  padding: 20px;
-  /* border: purple 8px solid; */
-  min-width: max-content;
+  padding: 100px;
   color: var(--Yellow);
   border-top: var(--Yellow) 5px solid;
   background-color: var(--Blue);
@@ -40,6 +66,8 @@ footer h4 {
   align-items: flex-start;
   font-size: 1.1rem;
   font-family: "Fredericka the Great", serif;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footer-color-shift p {
@@ -66,9 +94,24 @@ footer h4 {
   background-color: var(--Blue);
 }
 
+.header-color,
+.footer-color {
+  width: 100vw;
+  margin: 0;
+  left: 0;
+  right: 0;
+  position: relative;
+}
+
+.header img {
+  max-width: 100%;
+  height: auto;
+}
+
 .navbar-move {
   height: 70px;
-  width: 800px;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -83,12 +126,22 @@ footer h4 {
   color: var(--White);
 }
 
-.button,
-button {
+button,
+input[type="submit"] {
   background-color: var(--Yellow);
-  height: 20px;
-  width: 70px;
-  margin-left: 350px;
+  color: var(--Blue);
+  font-weight: bold;
+  font-family: "Fredericka the Great", serif;
+  border: 2px solid var(--Blue);
+  border-radius: 8px;
+  padding: 5px 30px;
+}
+
+.form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 /* About Page */
@@ -101,7 +154,7 @@ button {
   padding-right: 30px;
   padding-bottom: 50px;
   margin-bottom: 60px;
-  background-color: var(--White) F;
+  background-color: var(--White);
   margin-top: 60px;
 }
 
@@ -146,10 +199,11 @@ h2,
 /* Admin Page */
 
 .admin {
+  width: 1050px;
   border: 5px solid var(--Blue);
   background-color: var(--White);
-  margin: 45px 150px;
-  padding: 20px 275px 7px 200px;
+  margin: 60px auto;
+  padding: 25px 250px 7px 200px;
   display: flex;
   flex-direction: column;
 }
@@ -160,6 +214,7 @@ h2,
 
 .admin h1 {
   color: var(--Blue);
+  text-align: center;
 }
 
 input[type="submit"] {
@@ -170,7 +225,8 @@ input[type="submit"] {
 table,
 td,
 th,
-button {
+button,
+td.update-link a {
   border: 2px solid var(--Blue);
   height: 30px;
   border-collapse: collapse;
@@ -187,9 +243,10 @@ tr:nth-child(odd) {
 }
 
 th,
-td {
+td,
+td.update-link a {
   width: 80%;
-  padding-left: 10px;
+  padding-left: 15px;
 }
 
 input.button {
@@ -198,7 +255,8 @@ input.button {
   color: var(--Blue);
 }
 
-td button {
+td button,
+td.update-link a {
   background-color: var(--Yellow);
   margin: 5px 20px;
   padding: 2px 20px;
@@ -209,24 +267,32 @@ th button {
   margin: 5px 15px;
   padding: 5px 25px;
 }
-
-/* Login Page */
-.login {
-  border: #063c5e 3.5px solid;
-  background-color: var(--White);
-  padding-bottom: 20px;
-  margin-top: 50px;
-  margin: 50px 500px;
-  padding: 25px;
+td.update-link a {
+  border-radius: 8px;
+  margin: 5px 15px;
+  padding: 5px 25px;
+  font-size: 15px;
 }
 
-.login h1 {
+/* Login Page */
+.login,
+.SignUp {
+  border: 5px solid var(--Blue);
+  background-color: var(--White);
+  width: 900px;
+  margin: 60px auto;
+  padding: 25px 30px 50px 10px;
+}
+
+.login h1,
+.SignUp h1 {
   display: flex;
   justify-content: center;
   color: var(--Blue);
 }
 
-.login form > div {
+.login form > div,
+.SignUp form > div {
   margin-bottom: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -241,10 +307,12 @@ label {
 /* Create Page */
 .create {
   border: var(--Blue) 3.5px solid;
-  background-color: white;
-  padding: 100px;
+  background-color: var(--White);
   margin: 80px auto;
-  max-width: 1000px;
+  padding: 40px 20px;
+  width: 90%;
+  max-width: 900px;
+  box-sizing: border-box;
 }
 
 .create h1 {
@@ -392,6 +460,7 @@ h3 {
   font-weight: bold;
   padding: 70;
 }
+
 @media screen and (max-width: 320px) {
   .create {
     width: 95%;
@@ -410,12 +479,17 @@ h3 {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .create {
-    width: 95%;
-    padding: 30px;
+@media screen and (max-width: 600px) {
+  .navbar-move {
+    flex-direction: column;
   }
 
+  .navbar-move a {
+    margin: 8px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .create .form-group {
     flex-direction: column;
     align-items: flex-start;
@@ -428,7 +502,7 @@ h3 {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 999px) {
   .create {
     width: 95%;
     padding: 30px;

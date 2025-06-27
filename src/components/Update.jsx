@@ -141,7 +141,9 @@ function Update() {
               defaultValue={"synopsis value stored in the database"}
             />
           </div>
-          <button>Submit</button>
+          <div className="form-button">
+            <button>Submit</button>
+          </div>
         </div>
       </form>
     </main>

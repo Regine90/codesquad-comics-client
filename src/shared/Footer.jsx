@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function Footer() {
     return (
         <footer>
@@ -16,11 +17,11 @@ function Footer() {
                 <div className="footer-color-shift">
                     <h4>LINKS</h4>
                     <p>
-                        <a href="#">Home</a>
+                        <a href="/">Home</a>
                         <br/>
-                        <a href="#">About</a>
+                        <a href="/about">About</a>
                         <br/>
-                        <a href="#">Login</a>
+                        <a href="/login">Login</a>
                     </p>
                 </div>
                 <div className="footer-color-shift">
@@ -35,7 +36,7 @@ function Footer() {
                 <div className="footer-color-shift">
                     <h4>A PRODUCT OF</h4>
                     <br/>
-                    <a href="http://codesquad.org/" target="_blank" rel="noopener noreferrer"><img src="public/images/CodeSquad-logo-b.png" width="150px"/></a>
+                    <a href="http://codesquad.org/" target="_blank" rel="noopener noreferrer"><img src="/images/CodeSquad-logo.jpg" width="150px"/></a>
                 </div>
             </div>
         </footer>

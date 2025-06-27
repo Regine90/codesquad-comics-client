@@ -30,7 +30,7 @@ function Header({ user, setUser }) {
       <div className="header-color">
         <Link to="/">
           <img
-            src="/images/CodeSquad-Comics-logo.png"
+            src="/images/CodeSquad-Comics-logo.jpg"
             width="300px"
             alt="CodeSquad logo"
           />
@@ -41,7 +41,7 @@ function Header({ user, setUser }) {
           <Link to="/about">About</Link>
           {user && user.username ? (
             <>
-            <link to="/admin">Admin</link>
+            <Link to="/admin">Admin</Link>
             <br />
             <a href="#" onClick={handleLogout}>Logout</a>
             </>
