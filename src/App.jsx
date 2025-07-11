@@ -24,6 +24,19 @@ function App() {
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
+        <div className="page-wrapper">
+          <Header user={user} setUser={setUser} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup user={user} setUser={setUser} />} />
+            <Route path="/update/:id" element={<Update />} />
+          </Routes>
+          <Footer />
+        </div>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
