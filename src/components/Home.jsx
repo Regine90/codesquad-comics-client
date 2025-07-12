@@ -25,10 +25,10 @@ function Home() {
     <main>
       <div className="index">
         <h1>CODESQUAD COMICS</h1>
-        {books.map((book) => (
+        {collection.map((book) => (
           <ul key={book._id}>
             <img
-              src={`./images/${book.imageUrl}`}
+              src={`/images/${book.imageUrl}`}
               width="300px"
               alt="{book.title}"
             />
