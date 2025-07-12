@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 
 function Update() {
-  const { bookId } = useParams();
+  const { id: bookId } = useParams();
   const [form, setForm] = useState([]);
   const navigate = useNavigate();
 
