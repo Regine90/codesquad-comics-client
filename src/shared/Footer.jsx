@@ -48,7 +48,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/images/CodeSquad-logo-a.jpg" width="150px" />
+            <img src="/images/CodeSquad-logo.jpg" width="150px" />
           </a>
         </div>
       </div>
