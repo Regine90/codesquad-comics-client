@@ -9,7 +9,7 @@ function Update() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = `https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}`;
+    const url = `https://course-project-codesquad-comics-server.onrender.com/api/books/update/${bookId}`;
 
     fetch(url, {
       method: "GET",
@@ -43,8 +43,7 @@ function Update() {
        synopsis: e.target.synopsis.value,
      };
 
-     const url = `https://course-project-codesquad-comics-server.onrender.com/api/books/${bookId}`;
-
+     const url = `https://course-project-codesquad-comics-server.onrender.com/api/books/update/${bookId}`;
 
      fetch(url, {
        method: "PUT",
@@ -54,10 +53,12 @@ function Update() {
        body: JSON.stringify(body),
      })
        .then((response) => response.json())
-       .then((result) => console.log(result.data.books))
+       .then((result) => { 
+        console.log(result.data.books)
+        navigate("/admin");
+       })
        .catch((error) => {
          console.log(error);
-         navigate("/admin");
        });
   };
 
