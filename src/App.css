@@ -1,42 +1,521 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+:root {
+  --Teal: #006b6b;
+  --LightTeal: #009e9e;
+  --Yellow: #fccf14;
+  --Blue: #063c5e;
+  --Grey: #c2c2c2;
+  --White: #ffffff;
+}
+
+body {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+  background-image: linear-gradient(
+    var(--White),
+    var(--LightTeal),
+    var(--Teal)
+  );
+  font-family: "Open Sans", serif;
+  display: block;
+}
+
+html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+footer h4 {
+  margin-top: 0;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+  background-color: var(--Blue);
+  color: var(--White);
+  padding: 15px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.update-comic h1 {
+  color: var(--blue);
+  font-size: 2.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.footer-color {
+  padding: 100px;
+  color: var(--Yellow);
+  border-top: var(--Yellow) 5px solid;
+  background-color: var(--Blue);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 1.1rem;
+  font-family: "Fredericka the Great", serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer-color-shift p {
+  color: var(--White);
+  font-size: 1.1rem;
+}
+
+.footer-color-shift a {
+  font-size: 1.1rem;
+}
+
+.footer-color > * {
+  flex: 1 1 200px;
+  margin: 5px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Fredericka the Great", serif;
+}
+
+.header-color {
+  background-color: var(--Blue);
+}
+
+.header-color,
+.footer-color {
+  width: 100vw;
+  margin: 0;
+  left: 0;
+  right: 0;
+  position: relative;
+}
+
+.header img {
+  max-width: 100%;
+  height: auto;
+}
+
+.navbar-move {
+  height: 70px;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.2rem;
+  font-family: "Fredericka the Great", serif;
+}
+
+.navbar-move a,
+.footer-color a {
+  text-decoration: none;
+  color: var(--White);
+}
+
+button,
+input[type="submit"] {
+  background-color: var(--Yellow);
+  color: var(--Blue);
+  font-weight: bold;
+  font-family: "Fredericka the Great", serif;
+  border: 2px solid var(--Blue);
+  border-radius: 8px;
+  padding: 5px 30px;
+}
+
+.form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* About Page */
+.about {
+  margin: 10vh auto;
+  width: 900px;
+  border: 5px solid var(--Blue);
+  padding-top: 25px;
+  padding-left: 10px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  margin-bottom: 60px;
+  background-color: var(--White);
+  margin-top: 60px;
+}
+
+.about h1,
+h2,
+.index h1 {
+  color: var(--Blue);
+  display: flex;
+  justify-content: center;
+}
+
+.about h2 {
+  font-size: 1.6rem;
+}
+
+.about p {
+  margin-left: 20px;
+}
+
+.about ul li {
+  margin-left: 20px;
+}
+
+/* Index page */
+.index {
+  border: 5px solid var(--Blue);
+  background-color: var(--White);
+  padding-bottom: 20px;
+  margin-top: 50px;
+  margin: 20px 200px;
+  padding: 25px;
+}
+.index-border {
+  border: 5px solid var(--Blue);
+  background-color: var(--White);
+  padding-bottom: 30px;
+  margin-top: 60px;
+  margin: 40px 200px;
+  padding: 25px;
+}
+
+/* Admin Page */
+
+.admin {
+  width: 1050px;
+  border: 5px solid var(--Blue);
+  background-color: var(--White);
+  margin: 60px auto;
+  padding: 25px 250px 7px 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.center-h1-button {
+  margin: auto;
+}
+
+.admin h1 {
+  color: var(--Blue);
+  text-align: center;
+}
+
+input[type="submit"] {
+  margin: 20px;
+  margin-bottom: 20px;
+}
+
+table,
+td,
+th,
+button,
+td.update-link a {
+  border: 2px solid var(--Blue);
+  height: 30px;
+  border-collapse: collapse;
+}
+
+table {
+  width: 700px;
+  height: 2vh;
+  margin-bottom: 30px;
+}
+
+tr:nth-child(odd) {
+  background-color: var(--Grey);
+}
+
+th,
+td,
+td.update-link a {
+  width: 80%;
+  padding-left: 15px;
+}
+
+input.button {
+  display: block;
+  margin: 5px 40px;
+  color: var(--Blue);
+}
+
+td button,
+td.update-link a {
+  background-color: var(--Yellow);
+  margin: 5px 20px;
+  padding: 2px 20px;
+}
+th button {
+  background-color: var(--Blue);
+  color: var(--White);
+  margin: 5px 15px;
+  padding: 5px 25px;
+}
+td.update-link a {
+  border-radius: 8px;
+  margin: 5px 15px;
+  padding: 5px 25px;
+  font-size: 15px;
+}
+
+/* Login Page */
+.login,
+.SignUp {
+  border: 5px solid var(--Blue);
+  background-color: var(--White);
+  width: 900px;
+  margin: 60px auto;
+  padding: 25px 30px 50px 10px;
+}
+
+.login h1,
+.SignUp h1 {
+  display: flex;
+  justify-content: center;
+  color: var(--Blue);
+}
+
+.login form > div,
+.SignUp form > div {
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+label {
+  flex-basis: 230px;
+  text-align: end;
+  margin-left: 100px;
+}
+
+/* Create Page */
+.create {
+  border: var(--Blue) 3.5px solid;
+  background-color: var(--White);
+  margin: 80px auto;
+  padding: 40px 20px;
+  width: 90%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+.create h1 {
+  text-align: center;
+  color: var(--Blue);
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.create form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.create .form-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90%;
+  margin-bottom: 15px;
+}
+
+.create label {
+  font-size: 18px;
+  width: 500px;
+  text-align: right;
+  margin-right: 15px;
+}
+
+.create input,
+.create select,
+.create textarea {
+  width: 50%;
+  border-radius: 3px;
+  flex-grow: 1;
+}
+
+.create textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+/* Update Comic Page */
+.update-comic {
+  border: var(--Blue) 3.5px solid;
+  background-color: white;
+  padding: 100px;
+  margin: 80px auto;
+  max-width: 1000px;
+}
+
+.update-comic h1 {
+  text-align: center;
+  color: var(--Blue);
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.update-comic form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.update-comic .form-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90%;
+  margin-bottom: 15px;
+}
+
+.update-comic label {
+  font-size: 18px;
+  width: 500px;
+  text-align: right;
+  margin-right: 15px;
+}
+
+.update-comic input,
+.update-comic select,
+.update-comic textarea {
+  width: 50%;
+  border-radius: 3px;
+  flex-grow: 1;
+}
+
+.update-comic textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+/* Hunter page */
+* {
+  box-sizing: border-box;
+}
+
+h3 {
+  color: var(--Yellow);
+  text-align: center;
+}
+
+.hunter-card {
+  margin: 10vh auto;
+  width: 550px;
+  border: 5px solid var(--Yellow);
+  border-radius: 25px;
+}
+
+.hunter-card-top {
+  background-color: var(--Blue);
+  padding-left: 70px;
+  padding-bottom: 25px;
+}
+
+.hunter-card-inside {
+  width: 400px;
+  height: 600px;
+  background-image: url("../images/hunter-x-hunter.jpg");
+  background-position: center center;
+  background-size: cover;
+  border-style: none;
+  border-radius: 25px;
+}
+
+.hunter-card-bottom {
+  background-color: var(--Blue);
+  padding: 10px;
+  border-radius: 20px 20px 0px 0px;
+  padding-top: 5px;
+}
+
+.hunter-card-body {
+  padding: 3% 7% 10% 7%;
+  border-radius: 0 0 0 40px;
+  border-top: var(--Yellow) 5px solid;
+}
+
+.hunter-card-body u {
+  color: var(--Blue);
+  font-weight: bold;
+  padding: 70;
+}
+
+@media screen and (max-width: 320px) {
+  .create {
+    width: 95%;
+    padding: 30px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .create .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .create label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media screen and (max-width: 600px) {
+  .navbar-move {
+    flex-direction: column;
+  }
+
+  .navbar-move a {
+    margin: 8px 0;
   }
 }
 
-.card {
-  padding: 2em;
+@media screen and (max-width: 768px) {
+  .create .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .create label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@media screen and (max-width: 999px) {
+  .create {
+    width: 95%;
+    padding: 30px;
+  }
+
+  .create .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .create label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+  }
 }
