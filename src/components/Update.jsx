@@ -55,7 +55,7 @@ function Update() {
        .then((response) => response.json())
        .then((result) => { 
         console.log(result.data.books)
-        navigate("/admin");
+        navigate("/admin", { state: { updated: true } });
        })
        .catch((error) => {
          console.log(error);

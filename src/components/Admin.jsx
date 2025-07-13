@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function Admin() {
   const [collection, setCollection] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     const FetchCreate = () => {
@@ -21,7 +22,7 @@ function Admin() {
         .catch((error) => console.log(error));
     };
     FetchCreate();
-  }, []);
+  }, [location.state]);
 
   const url =
     "https://course-project-codesquad-comics-server.onrender.com/api/books/delete/";
